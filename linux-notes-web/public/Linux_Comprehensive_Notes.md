@@ -1,12 +1,3 @@
-# 🐧 Comprehensive Linux Notes
-### DevOps Track — Linux | Shell Scripting | AWS | DevOps
-
----
-
-> **How to use these notes:** Each chapter builds on the previous one. Beginners should read from Chapter 1. Experienced users can jump to any chapter directly.
-
----
-
 ## Table of Contents
 
 1. [Operating System (OS) Basics](#chapter-1-operating-system-os-basics)
@@ -91,17 +82,11 @@ Many people confuse these:
 - **Kernel** = the core engine of the OS (manages hardware directly)
 - **OS** = Kernel + Shell + Utilities + Applications
 
-```
-+---------------------------+
-|      Applications         |
-|      (vim, firefox)       |
-+---------------------------+
-|      Shell (bash, zsh)    |
-+---------------------------+
-|         Kernel            |  ← Core of OS
-+---------------------------+
-|         Hardware          |
-+---------------------------+
+```os-architecture
+  layer: Applications (vim, firefox)
+  layer: Shell (bash, zsh)
+  layer: Kernel (Core of OS)
+  layer: Hardware
 ```
 
 ---

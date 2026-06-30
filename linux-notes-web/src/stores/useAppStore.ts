@@ -24,6 +24,9 @@ interface AppState {
   expandedChapters: Record<string, boolean>
   toggleChapter: (id: string) => void
   setExpandedChapters: (expanded: Record<string, boolean>) => void
+  
+  theme: string
+  setTheme: (theme: string) => void
 }
 
 export const useAppStore = create<AppState>((set) => ({
@@ -47,5 +50,18 @@ export const useAppStore = create<AppState>((set) => ({
       [id]: !state.expandedChapters[id]
     }
   })),
-  setExpandedChapters: (expanded) => set({ expandedChapters: expanded })
+  setExpandedChapters: (expanded) => set({ expandedChapters: expanded }),
+  
+  theme: typeof window !== 'undefined' ? (localStorage.getItem('linux-notes-theme') || 'dark') : 'dark',
+  setTheme: (theme) => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('linux-notes-theme', theme)
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    }
+    set({ theme })
+  }
 }))

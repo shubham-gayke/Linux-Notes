@@ -4,81 +4,78 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ─── Premium Theme Tokens ─── */
+/* ─── Color Palette (matches portfolio dark theme) ─── */
 
 :root {
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
 
-  --background: #ffffff;
+  --background: #f8fafc;
   --foreground: #0f172a;
   --card: #ffffff;
   --card-foreground: #0f172a;
   --popover: #ffffff;
   --popover-foreground: #0f172a;
-  --primary: #0284c7;
+  --primary: #f97316;
   --primary-foreground: #ffffff;
   --secondary: #f1f5f9;
   --secondary-foreground: #0f172a;
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
-  --accent: #f1f5f9;
-  --accent-foreground: #0f172a;
+  --accent: #a855f7;
+  --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #0284c7;
+  --ring: #f97316;
   --radius: 0.75rem;
 
-  /* Premium accent gradients */
-  --gradient-primary: linear-gradient(135deg, #0284c7 0%, #0ea5e9 50%, #38bdf8 100%);
-  --gradient-secondary: linear-gradient(135deg, #0891b2 0%, #0284c7 50%, #4f46e5 100%);
-  --gradient-surface: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(2,132,199,0.03) 100%);
+  --gradient-primary: linear-gradient(135deg, #c026d3 0%, #a855f7 40%, #f97316 100%);
+  --gradient-accent: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f97316 100%);
 
   --sidebar: #f8fafc;
   --sidebar-foreground: #0f172a;
-  --sidebar-primary: #0284c7;
+  --sidebar-primary: #f97316;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #f1f5f9;
   --sidebar-accent-foreground: #0f172a;
   --sidebar-border: #e2e8f0;
-  --sidebar-ring: #0284c7;
+  --sidebar-ring: #f97316;
 }
 
 .dark {
-  --background: #020617;
-  --foreground: #f8fafc;
-  --card: #0f172a;
-  --card-foreground: #f8fafc;
-  --popover: #0f172a;
-  --popover-foreground: #f8fafc;
-  --primary: #38bdf8;
-  --primary-foreground: #020617;
-  --secondary: #1e293b;
-  --secondary-foreground: #f8fafc;
-  --muted: #1e293b;
-  --muted-foreground: #94a3b8;
-  --accent: #1e293b;
-  --accent-foreground: #f8fafc;
+  --background: #0a0a0f;
+  --foreground: #e2e8f0;
+  --card: #12121a;
+  --card-foreground: #e2e8f0;
+  --popover: #12121a;
+  --popover-foreground: #e2e8f0;
+  --primary: #f97316;
+  --primary-foreground: #ffffff;
+  --secondary: #1a1a2e;
+  --secondary-foreground: #e2e8f0;
+  --muted: #1a1a2e;
+  --muted-foreground: #8892b0;
+  --accent: #a855f7;
+  --accent-foreground: #ffffff;
   --destructive: #ef4444;
-  --destructive-foreground: #f8fafc;
-  --border: #1e293b;
-  --input: #1e293b;
-  --ring: #38bdf8;
+  --destructive-foreground: #e2e8f0;
+  --border: #1e1e30;
+  --input: #1e1e30;
+  --ring: #f97316;
 
-  --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 50%, #7dd3fc 100%);
-  --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #38bdf8 50%, #818cf8 100%);
-  --gradient-surface: linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(56,189,248,0.04) 100%);
+  --gradient-primary: linear-gradient(135deg, #c026d3 0%, #a855f7 40%, #f97316 100%);
+  --gradient-accent: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f97316 100%);
 
-  --sidebar: #020617;
-  --sidebar-foreground: #f8fafc;
-  --sidebar-primary: #38bdf8;
-  --sidebar-primary-foreground: #020617;
-  --sidebar-accent: #1e293b;
-  --sidebar-accent-foreground: #f8fafc;
-  --sidebar-border: #0f172a;
-  --sidebar-ring: #38bdf8;
+  --sidebar: #0e0e16;
+  --sidebar-foreground: #e2e8f0;
+  --sidebar-primary: #f97316;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1a1a2e;
+  --sidebar-accent-foreground: #e2e8f0;
+  --sidebar-border: #1e1e30;
+  --sidebar-ring: #f97316;
 }
 
 @theme inline {
@@ -134,7 +131,6 @@
   }
 
   html {
-    scroll-behavior: smooth;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -151,11 +147,7 @@
   }
 
   ::selection {
-    background: rgba(124, 58, 237, 0.2);
-  }
-
-  .dark ::selection {
-    background: rgba(167, 139, 250, 0.25);
+    background: rgba(168, 85, 247, 0.25);
   }
 }
 
@@ -163,8 +155,8 @@
 
 @layer base {
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
   }
   ::-webkit-scrollbar-track {
     background: transparent;
@@ -178,100 +170,10 @@
   }
 }
 
-/* ─── Animated Background Glow ─── */
-
-.bg-grid-pattern {
-  background-image:
-    linear-gradient(rgba(124,58,237,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124,58,237,0.03) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
-
-.dark .bg-grid-pattern {
-  background-image:
-    linear-gradient(rgba(167,139,250,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(167,139,250,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
-
-/* ─── Glow Orbs ─── */
-
-.glow-orb {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.15;
-  pointer-events: none;
-  z-index: 0;
-  animation: float 20s ease-in-out infinite;
-}
-
-.glow-orb-1 {
-  width: 600px;
-  height: 600px;
-  background: var(--primary);
-  top: -200px;
-  right: -100px;
-  animation-delay: 0s;
-}
-
-.glow-orb-2 {
-  width: 500px;
-  height: 500px;
-  background: #06b6d4;
-  bottom: -200px;
-  left: -100px;
-  animation-delay: -7s;
-}
-
-.glow-orb-3 {
-  width: 400px;
-  height: 400px;
-  background: #f59e0b;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.06;
-  animation-delay: -14s;
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(30px, -30px) scale(1.05); }
-  50% { transform: translate(-20px, 20px) scale(0.95); }
-  75% { transform: translate(10px, -10px) scale(1.02); }
-}
-
-/* ─── Glass Effects ─── */
-
-.glass {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-}
-
-.dark .glass {
-  background: rgba(15, 15, 18, 0.7);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-}
-
-.glass-subtle {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.dark .glass-subtle {
-  background: rgba(15, 15, 18, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
 /* ─── Reading Progress Bar ─── */
 
 .reading-progress {
-  background: var(--gradient-primary);
+  background: var(--gradient-accent);
   height: 3px;
   position: absolute;
   bottom: 0;
@@ -280,20 +182,13 @@
   transition: width 0.15s ease-out;
 }
 
-/* ─── Noise Texture Overlay ─── */
+/* ─── Background gradient (static, GPU-friendly) ─── */
 
-.noise-overlay::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.4;
-}
-
-.dark .noise-overlay::before {
-  opacity: 0.3;
+.bg-dark-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(168, 85, 247, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 90% 80%, rgba(249, 115, 22, 0.06) 0%, transparent 60%),
+    var(--background);
 }
 
 /* ─── Print Styles ─── */
@@ -309,29 +204,16 @@
     height: auto !important;
   }
 
-  /* Hide UI elements */
-  aside, header, .glow-orb, .noise-overlay::before, button[aria-label="Scroll to top"], .no-print {
+  aside, header, button[aria-label="Scroll to top"], .no-print {
     display: none !important;
   }
 
-  /* Ensure main content is fully visible */
   main {
     overflow: visible !important;
     height: auto !important;
     background: none !important;
   }
-  
-  .flex-1.flex.flex-col.min-w-0.h-screen {
-    height: auto !important;
-    overflow: visible !important;
-  }
-  
-  .flex.h-screen.bg-background {
-    height: auto !important;
-    overflow: visible !important;
-  }
-  
-  /* Improve code blocks printing */
+
   pre, code {
     white-space: pre-wrap !important;
     word-break: break-all !important;
@@ -340,14 +222,6 @@
     border: 1px solid #e4e4e7 !important;
   }
 
-  /* Ensure cards print well */
-  .bg-card, .glass, .glass-subtle, .markdown-body > div > div {
-    background: transparent !important;
-    box-shadow: none !important;
-    border: 1px solid #e4e4e7 !important;
-  }
-  
-  /* Remove gradients for text */
   h1, h2 {
     color: black !important;
     background: none !important;
