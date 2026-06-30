@@ -80,8 +80,7 @@ function SidebarItem({ item, activeId, depth = 0 }: { item: TocItem; activeId: s
         `}
         onClick={() => {
           if (hasChildren) toggleChapter(item.id)
-          const el = document.getElementById(item.id)
-          if (el) el.scrollIntoView({ behavior: 'smooth' })
+          useAppStore.getState().scrollToHeading(item.id)
         }}
       >
         {/* Active indicator bar */}

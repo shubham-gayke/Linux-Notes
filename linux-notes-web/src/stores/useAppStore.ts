@@ -27,6 +27,9 @@ interface AppState {
   
   theme: string
   setTheme: (theme: string) => void
+  
+  forceRenderAll: boolean
+  scrollToHeading: (id: string) => void
 }
 
 export const useAppStore = create<AppState>((set) => ({
@@ -63,5 +66,17 @@ export const useAppStore = create<AppState>((set) => ({
       }
     }
     set({ theme })
+  },
+
+  forceRenderAll: false,
+  scrollToHeading: (id) => {
+    set({ forceRenderAll: true })
+    // Wait for the next tick for React to render the sections
+    setTimeout(() => {
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+      }
+    }, 100)
   }
 }))

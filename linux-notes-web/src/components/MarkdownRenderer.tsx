@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import { useAppStore } from '@/stores/useAppStore'
 
 /* ─── Helpers ─── */
 
@@ -132,11 +133,22 @@ const components: Record<string, React.FC<any>> = {
   th: ({ children, ...props }: any) => <th className="px-4 py-2.5 font-semibold text-[13px] text-primary uppercase tracking-wider" {...props}>{children}</th>,
   td: ({ children, ...props }: any) => <td className="px-4 py-2.5 text-[14px] text-foreground/75" {...props}>{children}</td>,
 
-  a: ({ href, children, ...props }: any) => (
-    <a href={href} className="font-medium text-primary hover:text-primary/80 hover:underline transition-colors" {...props}>
-      {children}
-    </a>
-  ),
+  a: ({ href, children, ...props }: any) => {
+    const isHeadingLink = href?.startsWith('#')
+    return (
+      <a 
+        href={href} 
+        className="font-medium text-primary hover:text-primary/80 hover:underline transition-colors cursor-pointer" 
+        onClick={isHeadingLink ? (e) => {
+          e.preventDefault()
+          useAppStore.getState().scrollToHeading(href.substring(1))
+        } : undefined}
+        {...props}
+      >
+        {children}
+      </a>
+    )
+  },
   hr: () => <hr className="my-10 border-border" />,
   strong: ({ children, ...props }: any) => <strong className="font-semibold text-foreground" {...props}>{children}</strong>,
   em: ({ children, ...props }: any) => <em className="italic text-foreground/70" {...props}>{children}</em>,
@@ -182,8 +194,15 @@ const SectionRenderer = memo(function SectionRenderer({ markdown }: { markdown: 
 
 /* ─── Lazy Section: only renders when near viewport ─── */
 function LazySection({ markdown, index }: { markdown: string; index: number }) {
+  const forceRenderAll = useAppStore(s => s.forceRenderAll)
   const [isVisible, setIsVisible] = useState(index < 2)
   const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (forceRenderAll && !isVisible) {
+      setIsVisible(true)
+    }
+  }, [forceRenderAll, isVisible])
 
   useEffect(() => {
     if (isVisible) return
