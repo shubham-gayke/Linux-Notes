@@ -192,7 +192,7 @@ function Sidebar({ onClose }: { onClose?: () => void }) {
       <div className="px-5 pt-6 pb-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-orange-500 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
               <Terminal className="w-4 h-4 text-white" />
             </div>
             <div>
@@ -343,7 +343,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
               </button>
 
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-purple-500 to-orange-500 flex items-center justify-center">
+                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
                   <span className="text-white text-xs font-bold font-mono">{'>_'}</span>
                 </div>
                 <div className="hidden sm:flex items-center gap-1.5">

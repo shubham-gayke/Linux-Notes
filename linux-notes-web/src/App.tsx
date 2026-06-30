@@ -11,7 +11,7 @@ function LoadingSkeleton() {
   return (
     <div className="flex items-center justify-center h-full min-h-[70vh]">
       <div className="text-center">
-        <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-purple-500 to-orange-500 flex items-center justify-center">
+        <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
           <span className="text-white text-lg font-bold font-mono">{'>_'}</span>
         </div>
         <p className="text-sm text-foreground font-semibold mb-1">
@@ -21,7 +21,7 @@ function LoadingSkeleton() {
           Preparing your notes...
         </p>
         <div className="mt-4 w-32 h-1 bg-muted rounded-full overflow-hidden mx-auto">
-          <div className="h-full rounded-full bg-gradient-to-r from-purple-500 to-orange-500 animate-pulse w-full" />
+          <div className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 animate-pulse w-full" />
         </div>
       </div>
     </div>

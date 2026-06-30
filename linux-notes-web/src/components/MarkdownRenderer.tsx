@@ -88,7 +88,7 @@ const components: Record<string, React.FC<any>> = {
           {chunks.map((chunk, idx) => (
             <div key={idx} className="bg-card border border-border rounded-xl p-6 shadow-sm hover:border-primary/50 transition-colors duration-300 relative overflow-hidden">
               {/* Subtle top gradient bar for portfolio feel */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-orange-500 opacity-80" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-80" />
               
               <h3 className="text-primary font-mono text-sm font-bold mb-5 uppercase tracking-wider flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-primary" />
