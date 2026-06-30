@@ -281,7 +281,7 @@ function ScrollToTop({ scrollRef }: { scrollRef: React.RefObject<HTMLElement | n
 
 /* ─── Main Layout ─── */
 export function MainLayout({ children }: { children: React.ReactNode }) {
-  const { sidebarOpen, setSidebarOpen, toggleSidebar, theme } = useAppStore()
+  const { sidebarOpen, setSidebarOpen, toggleSidebar, theme, setTheme } = useAppStore()
   const mainRef = useRef<HTMLElement>(null)
 
   // Initialize theme on mount
@@ -351,6 +351,22 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                   <span className="text-sm text-primary font-semibold">Linux</span>
                 </div>
               </div>
+            </div>
+
+            {/* Center: Glowing Link */}
+            <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center">
+              <a
+                href="https://devops-galaxy.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center gap-2 px-4 py-1.5 rounded-full bg-background border border-cyan-500/40 text-cyan-400 transition-all duration-300 hover:border-cyan-300 hover:text-cyan-300"
+              >
+                {/* Static/Hover Glow */}
+                <div className="absolute inset-0 rounded-full bg-cyan-500/10 blur-sm group-hover:bg-cyan-400/30 group-hover:blur-md transition-all duration-300"></div>
+                
+                <BookOpen className="w-4 h-4 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                <span className="text-xs font-bold tracking-wide relative z-10 whitespace-nowrap">Other Subjects Notes</span>
+              </a>
             </div>
 
             {/* Right: actions */}
