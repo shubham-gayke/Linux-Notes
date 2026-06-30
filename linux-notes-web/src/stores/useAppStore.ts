@@ -55,10 +55,10 @@ export const useAppStore = create<AppState>((set) => ({
   })),
   setExpandedChapters: (expanded) => set({ expandedChapters: expanded }),
   
-  theme: typeof window !== 'undefined' ? (localStorage.getItem('linux-notes-theme') || 'dark') : 'dark',
+  theme: typeof window !== 'undefined' ? (localStorage.getItem('linux-theme-v2') || 'dark') : 'dark',
   setTheme: (theme) => {
     if (typeof window !== 'undefined') {
-      localStorage.setItem('linux-notes-theme', theme)
+      localStorage.setItem('linux-theme-v2', theme)
       if (theme === 'dark') {
         document.documentElement.classList.add('dark')
       } else {
