@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { MainLayout } from '@/components/layout/MainLayout'
 import { MarkdownRenderer } from '@/components/MarkdownRenderer'
-import { ThemeSwitcher } from '@/components/ThemeSwitcher'
 import { useAppStore } from '@/stores/useAppStore'
 import { extractHeadings } from '@/utils/markdown'
 import { useScrollSpy } from '@/hooks/useScrollSpy'
@@ -60,12 +59,9 @@ function App() {
   useScrollSpy()
 
   return (
-    <>
-      <MainLayout>
-        <AppContent />
-      </MainLayout>
-      <ThemeSwitcher />
-    </>
+    <MainLayout>
+      <AppContent />
+    </MainLayout>
   )
 }
 

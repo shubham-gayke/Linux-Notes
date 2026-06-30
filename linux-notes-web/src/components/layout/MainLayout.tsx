@@ -6,7 +6,7 @@ import {
   BookOpen, Terminal, Server, Network, Shield, HardDrive,
   Users, FileText, Settings, Layers, Monitor, Cpu, Lock,
   Clock, Archive, Package, Wifi, Key, ScrollText, Code2,
-  ArrowUp, PanelLeftClose, PanelLeft
+  ArrowUp, PanelLeftClose, PanelLeft, Sun, Moon
 } from "lucide-react"
 
 const chapterIcons: Record<string, React.ElementType> = {
@@ -353,8 +353,24 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
               </div>
             </div>
 
-            {/* Right: empty or future actions */}
+            {/* Right: actions */}
             <div className="flex items-center gap-2">
+              <button
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border bg-card/50 hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-all duration-200"
+              >
+                {theme === 'dark' ? (
+                  <>
+                    <Sun className="w-4 h-4 text-cyan-400" />
+                    <span className="text-xs font-semibold">Light Mode</span>
+                  </>
+                ) : (
+                  <>
+                    <Moon className="w-4 h-4 text-slate-600" />
+                    <span className="text-xs font-semibold">Dark Mode</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
 
