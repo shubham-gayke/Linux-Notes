@@ -47,11 +47,6 @@ function getChapterIcon(text: string): React.ElementType {
   return BookOpen
 }
 
-function getChapterNumber(text: string): string | null {
-  const match = text.match(/Chapter\s+(\d+)/i)
-  return match ? match[1] : null
-}
-
 /* ─── Sidebar Item ─── */
 function SidebarItem({ item, activeId, depth = 0 }: { item: TocItem; activeId: string | null; depth?: number }) {
   const { expandedChapters, toggleChapter } = useAppStore()
@@ -60,7 +55,6 @@ function SidebarItem({ item, activeId, depth = 0 }: { item: TocItem; activeId: s
   const isActive = activeId === item.id
   const isChapter = item.level === 2
   const Icon = isChapter ? getChapterIcon(item.text) : null
-  const chapterNum = isChapter ? getChapterNumber(item.text) : null
   const itemRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
