@@ -6,7 +6,7 @@ import {
   BookOpen, Terminal, Server, Network, Shield, HardDrive,
   Users, FileText, Settings, Layers, Monitor, Cpu, Lock,
   Clock, Archive, Package, Wifi, Key, ScrollText, Code2,
-  ArrowUp, PanelLeftClose, PanelLeft, Sun, Moon
+  ArrowUp, PanelLeftClose, PanelLeft, Sun, Moon, Zap
 } from "lucide-react"
 
 const chapterIcons: Record<string, React.ElementType> = {
@@ -356,18 +356,33 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
             {/* Right: actions */}
             <div className="flex items-center gap-2">
               <button
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                onClick={() => {
+                  if (theme === 'light') setTheme('dark')
+                  else if (theme === 'dark') setTheme('neon')
+                  else if (theme === 'neon') setTheme('hacker')
+                  else setTheme('light')
+                }}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border bg-card/50 hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-all duration-200"
               >
-                {theme === 'dark' ? (
+                {theme === 'light' ? (
                   <>
-                    <Sun className="w-4 h-4 text-cyan-400" />
+                    <Sun className="w-4 h-4 text-orange-400" />
                     <span className="text-xs font-semibold">Light Mode</span>
+                  </>
+                ) : theme === 'dark' ? (
+                  <>
+                    <Moon className="w-4 h-4 text-cyan-400" />
+                    <span className="text-xs font-semibold">Ocean Dark</span>
+                  </>
+                ) : theme === 'neon' ? (
+                  <>
+                    <Zap className="w-4 h-4 text-fuchsia-400" />
+                    <span className="text-xs font-semibold">Neon Dark</span>
                   </>
                 ) : (
                   <>
-                    <Moon className="w-4 h-4 text-slate-600" />
-                    <span className="text-xs font-semibold">Dark Mode</span>
+                    <Terminal className="w-4 h-4 text-green-400" />
+                    <span className="text-xs font-semibold">Hacker Mode</span>
                   </>
                 )}
               </button>

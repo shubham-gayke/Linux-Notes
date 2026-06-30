@@ -59,10 +59,16 @@ export const useAppStore = create<AppState>((set) => ({
   setTheme: (theme) => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('linux-theme-v2', theme)
+      
+      const el = document.documentElement
+      el.classList.remove('dark', 'neon', 'hacker')
+      
       if (theme === 'dark') {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
+        el.classList.add('dark')
+      } else if (theme === 'neon') {
+        el.classList.add('dark', 'neon')
+      } else if (theme === 'hacker') {
+        el.classList.add('dark', 'hacker')
       }
     }
     set({ theme })
